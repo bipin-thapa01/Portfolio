@@ -19,7 +19,9 @@ export default function Slider() {
   return (
     <div className="slider-wrapper">
       <div className="slider-container">
-        {[...icons, ...icons]}
+        {icons.map((icon, index) => (
+          <div key={index}>{icon}</div>
+        ))}
       </div>
     </div>
   );

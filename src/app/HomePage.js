@@ -86,7 +86,7 @@ export default function HomePage() {
             </div>
             <div className='intro-name'>
               <div>
-                I'm <span className='gradient-text'>Bipin Thapa</span>
+                I&apos;m <span className='gradient-text'>Bipin Thapa</span>
               </div>
               <div>
                 I am a
