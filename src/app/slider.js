@@ -7,20 +7,22 @@ import { TbBrandCpp } from "react-icons/tb";
 import "./slider.css";
 
 const icons = [
-  <FaPython className="slider-logo" />,
-  <IoLogoJavascript className="slider-logo" />,
-  <FaReact className="slider-logo" />,
-  <FaNodeJs className="slider-logo" />,
-  <FaJava className="slider-logo" />,
-  <TbBrandCpp className="slider-logo" />,
+  FaPython,
+  IoLogoJavascript,
+  FaReact,
+  FaNodeJs,
+  FaJava,
+  TbBrandCpp,
 ];
 
 export default function Slider() {
   return (
     <div className="slider-wrapper">
       <div className="slider-container">
-        {icons.map((icon, index) => (
-          <div key={index}>{icon}</div>
+        {icons.map((Icon, index) => (
+          <div key={index}>
+            <Icon className="slider-logo" />
+          </div>
         ))}
       </div>
     </div>
