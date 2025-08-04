@@ -12,30 +12,32 @@ export default function Wdid() {
       <h3>
         What I do
       </h3>
-      <div className="wdid-body">
-        <div>
-          <FaComputer className="wdid-logo"/>
-          <span>Web Sites<br></br> Development</span>
-        </div>
-        <div>
-          <PiHeadCircuitLight className="wdid-logo"/>
-          <span>Machine<br></br> Learning</span>
-        </div>
-        <div>
-          <FaSearchengin className="wdid-logo"/>
-          <span>Research and<br></br> Project Development</span>
-        </div>
-        <div>
-          <FaShoppingCart className="wdid-logo"/>
-          <span>Online<br></br> Shop</span>
-        </div>
-        <div>
-          <MdOutlineEventAvailable className="wdid-logo"/>
-          <span>Event<br></br> Management</span>
-        </div>
-        <div>
-        <FaChalkboardTeacher className="wdid-logo"/>
-        <span>Teaching</span>
+      <div>
+        <div className="wdid-body">
+          <div>
+            <FaComputer className="wdid-logo" />
+            <span>Web Sites<br></br> Development</span>
+          </div>
+          <div>
+            <PiHeadCircuitLight className="wdid-logo" />
+            <span>Machine<br></br> Learning</span>
+          </div>
+          <div>
+            <FaSearchengin className="wdid-logo" />
+            <span>Research and<br></br> Project Development</span>
+          </div>
+          <div>
+            <FaShoppingCart className="wdid-logo" />
+            <span>Online<br></br> Shop</span>
+          </div>
+          <div>
+            <MdOutlineEventAvailable className="wdid-logo" />
+            <span>Event<br></br> Management</span>
+          </div>
+          <div>
+            <FaChalkboardTeacher className="wdid-logo" />
+            <span>Teaching</span>
+          </div>
         </div>
       </div>
     </div>

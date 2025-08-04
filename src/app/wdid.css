@@ -1,7 +1,7 @@
 @import './global.css';
 
 .what-i-do-container{
-  margin: 100px 130px 0px 14px;
+  margin: 100px 14px 0px 14px;
 }
 
 .what-i-do-container h3{
@@ -20,15 +20,24 @@
   left: 0;
 }
 
+.what-i-do-container div{
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+}
+
 .wdid-body{
   margin-top: 60px;
   display: flex;
   flex-wrap: wrap;
+  justify-content: space-between;
   row-gap: 60px;
+  column-gap: 70px;
 }
 
 .wdid-body div{
-  width: 33.33%;
+  width: 300px;
   display: flex;
   align-items: center;
   column-gap: 40px;
@@ -40,4 +49,32 @@
 
 .wdid-body div span{
   font-weight: 600;
+}
+
+@media (max-width: 1350px){
+  .wdid-body{
+    column-gap: 50px;
+  }
+  
+  .wdid-body div{
+    width: 200px;
+    column-gap: 30px;
+  }
+}
+
+@media (max-width: 1050px){
+  .wdid-body{
+    column-gap: 100px;
+  }
+}
+
+@media (max-width: 625px){
+  .what-i-do-container div{
+    justify-content: left;
+  }
+
+  .wdid-body{
+    justify-content: left;
+    row-gap: 60px;
+  }
 }

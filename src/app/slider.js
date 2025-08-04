@@ -24,6 +24,11 @@ export default function Slider() {
             <Icon className="slider-logo" />
           </div>
         ))}
+        {icons.map((Icon, index) => (
+          <div key={index}>
+            <Icon className="slider-logo" />
+          </div>
+        ))}
       </div>
     </div>
   );

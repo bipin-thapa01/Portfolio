@@ -32,3 +32,19 @@
     transform: translate3d(-50%, 0, 0);
   }
 }
+
+@media (max-width: 1050px){
+  .slider-logo{
+    font-size: 80px;
+  }
+}
+
+@media (max-width: 625px){
+  .slider-logo{
+    font-size: 60px;
+  }
+
+  .slider-container{
+    column-gap: 100px;
+  }
+}
