@@ -1,0 +1,43 @@
+@import './global.css';
+
+.what-i-do-container{
+  margin: 100px 130px 0px 14px;
+}
+
+.what-i-do-container h3{
+  font-size: 30px;
+  position: relative;
+}
+
+.what-i-do-container h3::after{
+  content: "";
+  background: var(--gradient);
+  width: 140px;
+  height: 4px;
+  border-radius: 10px;
+  position: absolute;
+  bottom: 0;
+  left: 0;
+}
+
+.wdid-body{
+  margin-top: 60px;
+  display: flex;
+  flex-wrap: wrap;
+  row-gap: 60px;
+}
+
+.wdid-body div{
+  width: 33.33%;
+  display: flex;
+  align-items: center;
+  column-gap: 40px;
+}
+
+.wdid-logo{
+  font-size: 70px;
+}
+
+.wdid-body div span{
+  font-weight: 600;
+}

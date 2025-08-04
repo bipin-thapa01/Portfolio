@@ -1,0 +1,61 @@
+@import './global.css';
+
+.main-intro-container {
+  display: flex;
+  column-gap: 30px;
+}
+
+.intro-container {
+  flex: 1;
+  padding-top: 70px;
+}
+
+.profile-image {
+  object-fit: cover;
+  border-top-right-radius: 100px;
+  border-bottom-left-radius: 100px;
+}
+
+.intro-name {
+  font-size: 45px;
+  padding-top: 30px;
+  font-weight: 600;
+}
+
+.text {
+  margin-left:10px;
+  overflow: hidden;
+  border-right: 2px solid white;
+  white-space: nowrap;
+}
+
+.description{
+  color: gray;
+  margin-top: 40px;
+  font-size: 18px;
+  padding: 0 10px;
+  line-height: 1.5;
+}
+
+.dynamic-details {
+  display: flex;
+  flex-wrap: wrap;
+  column-gap: 20%;
+  row-gap: 40px;
+  font-size: 18px;
+  margin-top: 75px;
+}
+
+.dynamic-details div{
+  display: flex;
+  align-items: center;
+  column-gap: 8px;
+}
+
+.gradient-text {
+  background: var(--gradient);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  color: transparent;
+}
