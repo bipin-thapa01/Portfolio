@@ -1,14 +1,16 @@
 "use client";
 
+import Nav from "../nav";
 import ResumeCard from "./resumeCard";
 import Footer from "../footer";
 import "../global.css";
 
-export default function Page(){
-  return(
+export default function Page() {
+  return (
     <>
-      <ResumeCard/>
-      <Footer/>
+      <Nav />
+      <ResumeCard />
+      <Footer />
     </>
   );
 }

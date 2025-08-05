@@ -1,3 +1,6 @@
+"use client";
+
+import { useRouter } from 'next/navigation';
 import { useEffect } from 'react';
 import { RxHamburgerMenu } from "react-icons/rx";
 import { RxCross2 } from "react-icons/rx";
@@ -78,6 +81,8 @@ export default function Nav() {
     defineIcon();
   }, []);
 
+  const router = useRouter();
+
   return (
     <div className="nav">
       <div className="nav-icon-container" id="burger">
@@ -87,10 +92,10 @@ export default function Nav() {
         <RxCross2 className='nav-icon'/>
       </div>
       <div className='nav-options-container' id='noc'>
-        <div id='home-option'>Home</div>
-        <div id='resume-option'>Resume</div>
-        <div id='portfolio-option'>Portfolio</div>
-        <div id='contact-option'>Contact</div>
+        <div id='home-option' onClick={()=> router.push("/")}>Home</div>
+        <div id='resume-option' onClick={()=> router.push("/resume")}>Resume</div>
+        <div id='portfolio-option' onClick={()=> router.push("/portfolio")}>Portfolio</div>
+        <div id='contact-option' onClick={()=> router.push("/contact")}>Contact</div>
       </div>
     </div>
   );

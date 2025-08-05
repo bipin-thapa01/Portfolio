@@ -5,6 +5,7 @@
   margin: 0;
   box-sizing: border-box;
   --main-font-color: rgb(198, 198, 198);
+  --card-color: rgb(32, 32, 32);
   color: var(--main-font-color);
   --main-font: poppins, sans-serif;
   font-family: var(--main-font);
