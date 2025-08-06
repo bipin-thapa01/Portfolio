@@ -11,6 +11,7 @@ export default function Page() {
       <Nav />
       <ResumeCard />
       <Footer />
+      <div id="curtain"></div>
     </>
   );
 }
