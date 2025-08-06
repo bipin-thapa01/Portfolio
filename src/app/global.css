@@ -125,6 +125,10 @@ body{
     margin-left: 2vw;
   }
 
+  .nav{
+    right: -6vw;
+  }
+
   .footer div{
     font-size: 12px;
   }
@@ -136,5 +140,19 @@ body{
     flex-direction: column;
     row-gap: 10px;
     justify-content: center;
+  }
+
+  .nav{
+    right: -10vw;
+  }
+
+  .nav-options-container{
+    font-size: 14px !important;
+  }
+}
+
+@media (max-width: 330px){
+  .nav{
+    right: -13vw;
   }
 }

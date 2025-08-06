@@ -10,7 +10,7 @@
 .main-title{
   background-color: var(--main-font-color);
   color: black;
-  padding: 15px;
+  padding: 12px 15px;
   border-radius: 20px;
   font-weight: 600;
   position: relative;
@@ -24,7 +24,7 @@
   left: var(--after-left);
   background: var(--gradient);
   position: absolute;
-  top: 50px;
+  top: 43px;
 }
 
 .card{
@@ -44,4 +44,39 @@
   font-weight: 600;
   margin-top: 8px;
   margin-bottom: 15px;
+}
+
+@media (max-width: 915px){
+  .card{
+    padding: 15px;
+    width: 300px;
+  }
+}
+
+@media (max-width: 840px){
+  .data-card-container{
+    row-gap: 30px;
+  }
+
+  .main-title{
+    width: fit-content;
+  }
+
+  .main-title::after{
+    display: none;
+  }
+
+  .card{
+    padding: 15px;
+    width: 400px;
+    margin-left: 0px !important;
+  }
+}
+
+@media (max-width: 840px){
+  .card{
+    padding: 15px;
+    width: 90%;
+    margin-left: 0px !important;
+  }
 }
