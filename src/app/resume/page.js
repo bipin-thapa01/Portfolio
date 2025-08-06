@@ -1,17 +1,13 @@
-"use client";
+import Resume from "./resume";
 
-import Nav from "../nav";
-import ResumeCard from "./resumeCard";
-import Footer from "../footer";
-import "../global.css";
+export const metadata = {
+  title: "About Me - Portfolio",
+};
 
 export default function Page() {
   return (
     <>
-      <Nav />
-      <ResumeCard />
-      <Footer />
-      <div id="curtain"></div>
+      <Resume />
     </>
   );
 }
