@@ -64,7 +64,7 @@ export default function ResumeCard() {
 
 
   return (
-    <div className="main-container">
+    <div className="main-container-sub">
       <h3>
         MY RESUME
       </h3>

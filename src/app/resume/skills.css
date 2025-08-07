@@ -1,0 +1,136 @@
+@import "../global.css";
+
+.skills-container{
+  position: relative;
+  margin-top: 60px;
+}
+
+.skills-container h3{
+  font-size: 30px;
+  position: relative;
+}
+
+.skills-container h3::after{
+  content: "";
+  background: var(--gradient);
+  width: 128px;
+  height: 4px;
+  border-radius: 10px;
+  position: absolute;
+  bottom: 0;
+  left: 0;
+}
+
+.detail-container{
+  position: relative;
+  margin-top: 40px;
+  padding-left: 100px;
+  display: flex;
+  column-gap: 80px;
+  flex-wrap: wrap;
+}
+
+.language{
+  position: absolute;
+  color: gray !important;
+  transform: rotate(90deg);
+  top: 50px;
+  left: 0px;
+  font-size: 25px;
+}
+
+.lang{
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 150px;
+  height: 150px;
+}
+
+.js-p, .react-p, .python-p, .java-p{
+  width: 100px;
+  height: 100px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 50%;
+  position: relative;
+}
+
+.js-p::before,
+.react-p::before,
+.python-p::before,
+.java-p::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  border-radius: 50%;
+  padding: 5px;
+  -webkit-mask: 
+    radial-gradient(farthest-side, transparent calc(100% - 5px), black 0);
+  mask: 
+    radial-gradient(farthest-side, transparent calc(100% - 5px), black 0);
+  z-index: 999;
+}
+
+.js-p::before {
+  background: conic-gradient(purple 0% 85%, gray 85% 100%);
+}
+
+.react-p::before {
+  background: conic-gradient(purple 0% 70%, gray 70% 100%);
+}
+
+.python-p::before {
+  background: conic-gradient(purple 0% 50%, gray 50% 100%);
+}
+
+.java-p::before {
+  background: conic-gradient(purple 0% 50%, gray 50% 100%);
+}
+
+.js, .python, .react, .java{
+  margin-top: 8px;
+  text-align: center;
+}
+
+@media (max-width: 880px){
+  .detail-container{
+    position: relative;
+    margin-top: 40px;
+    padding-left: 100px;
+    display: flex;
+    column-gap: 50px;
+  }
+}
+
+@media (max-width: 760px){
+  .language{
+    left: -40px;
+    font-size: 25px;
+  }
+
+  .detail-container{
+    column-gap: 0px;
+    padding-left: 10px;
+  }
+}
+
+@media (max-width: 530px){
+  .detail-container{
+    justify-content: center;
+  }
+}
+
+@media (max-width: 400px){
+  .detail-container{
+    column-gap: 10px;
+    padding-left: 0px;
+    justify-content: center;
+  }
+
+  .js-p, .react-p, .python-p, .java-p{
+    width: 80px;
+    height: 80px;
+  }
+}
