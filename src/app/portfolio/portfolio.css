@@ -1,0 +1,15 @@
+.main-container h3{
+  font-size: 28px;
+  font-weight: 600;
+  position: relative;
+}
+
+.main-container h3::after{
+  content: "";
+  height: 4px;
+  width: 155px;
+  position: absolute;
+  bottom: -4px;
+  left: 0;
+  background: var(--gradient);
+}
