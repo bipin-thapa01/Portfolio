@@ -1,68 +1,123 @@
 "use client";
 
-import {useState, useEffect} from "react";
+import { useState, useEffect } from "react";
 import Image from "next/image";
 import birthCalc from "../../../public/birthCalc.png";
 import "../global.css";
 import "./portfolio.css";
 
-export default function PortfolioContainer(){
+export default function PortfolioContainer() {
 
   const [allProjects, setAllProjects] = useState(null);
   const [webProjects, setWebProjects] = useState(null);
   const [pythonProjects, setPythonProjects] = useState(null);
   const [bitProjects, setBitProjects] = useState(null);
+  const [cardCollection, setCardCollection] = useState(null);
+
+  const birth = "/birthCalc.png";
 
   const projects = {
     hackfest: {
+      title: "HackFest",
       url: "https://kist-hackfest2025.vercel.app/",
       type: "bit",
-      imgUrl: "",
+      imgUrl: "/hackfest.png",
     },
     birthcalc: {
+      title: "Birthday Calculation",
       url: "https://birthcalcz.netlify.app/",
-      type: "web"
+      type: "web",
+      imgUrl: "/birthCalc.png",
     },
     note: {
+      title: "Mero Note",
       url: "https://mero-note.netlify.app/",
-      type: "web"
+      type: "web",
+      imgUrl: "/meroNote.png",
     },
     passGen: {
+      title: "Password Generator",
       url: "https://bipin-thapa01.github.io/Password-Generator/",
-      type: "web"
+      type: "web",
+      imgUrl: "/passGen.png",
     },
     memoryGame: {
+      title: "Memory Game",
       url: "https://bipin-thapa01.github.io/Memory-Game/index.html",
-      type: "web"
+      type: "web",
+      imgUrl: "/memoryGame.png",
     },
     kistWebsite: {
+      title: "KIST Website",
       url: "https://bipin-thapa01.github.io/Memory-Game/index.html",
-      type: "web"
+      type: "web",
+      imgUrl: "/kistWeb.png",
     },
     textEditor: {
+      title: "Text Editor",
       url: "https://github.com/bipin-thapa01/Python",
-      type: "python"
+      type: "python",
+      imgUrl: "/textEditor.png",
     },
   };
+
+  const filterContent = (category) => {
+    const allowedCategory = (category === "all" ? ["web", "bit", "python"] : [category]);
+    console.log(allowedCategory)
+    setCardCollection(
+      Object.entries(projects).filter((item) => allowedCategory.includes(item[1].type)).map((item, index) => {
+        return <div className="card" id={`card${index}`} key={index} onMouseEnter={(e) => {
+          mouseEnter(e);
+        }}
+        onMouseLeave={(e) => {
+          mouseLeave(e);
+        }}
+        onTouchStart={(e)=>{
+          mouseEnter(e);
+        }}
+        onTouchEnd={(e)=>{
+          mouseLeave(e);
+        }}
+        >
+          <Image alt="Project Image" className="card-image"
+            src={item[1].imgUrl} width={500} height={500} />
+          <div className="card-curtain"></div>
+          <div className="card-info">
+            <div className="card-title">
+              {item[1].title.toUpperCase()}
+            </div>
+            <div className="card-type">
+              {item[1].type.toUpperCase()}
+            </div>
+          </div>
+        </div>
+      })
+    );
+  }
 
   useEffect(() => {
     setAllProjects(document.getElementById("all"));
     setWebProjects(document.getElementById("web"));
     setPythonProjects(document.getElementById("py"));
     setBitProjects(document.getElementById("bit"));
+    filterContent("all");
   }, []);
 
-  const mouseEnter = (e) =>{
+  const mouseEnter = (e) => {
     const targetCurtain = e.currentTarget.querySelector(".card-curtain");
+    const targetCardInfo = e.currentTarget.querySelector(".card-info");
     targetCurtain.style.display = "block";
+    targetCardInfo.style.display = "flex";
   }
 
-  const mouseLeave = (e) =>{
+  const mouseLeave = (e) => {
     const targetCurtain = e.currentTarget.querySelector(".card-curtain");
+    const targetCardInfo = e.currentTarget.querySelector(".card-info");
     targetCurtain.style.display = "none";
+    targetCardInfo.style.display = "none";
   }
 
-  const all = () =>{
+  const all = () => {
     allProjects.style.backgroundColor = "gray";
     allProjects.style.color = "black";
     webProjects.style.backgroundColor = "inherit";
@@ -71,20 +126,22 @@ export default function PortfolioContainer(){
     pythonProjects.style.color = "inherit";
     bitProjects.style.backgroundColor = "inherit";
     bitProjects.style.color = "inherit";
+    filterContent("all");
   }
 
-  const web = () =>{
+  const web = () => {
     allProjects.style.backgroundColor = "inherit";
     allProjects.style.color = "inherit";
-    webProjects.style.backgroundColor = "nhey";
+    webProjects.style.backgroundColor = "gray";
     webProjects.style.color = "black";
     pythonProjects.style.backgroundColor = "inherit";
     pythonProjects.style.color = "inherit";
     bitProjects.style.backgroundColor = "inherit";
     bitProjects.style.color = "inherit";
+    filterContent("web");
   }
 
-  const py = () =>{
+  const py = () => {
     allProjects.style.backgroundColor = "inherit";
     allProjects.style.color = "inherit";
     webProjects.style.backgroundColor = "inherit";
@@ -93,9 +150,10 @@ export default function PortfolioContainer(){
     pythonProjects.style.color = "black";
     bitProjects.style.backgroundColor = "inherit";
     bitProjects.style.color = "inherit";
+    filterContent("python");
   }
 
-  const bit = () =>{
+  const bit = () => {
     allProjects.style.backgroundColor = "inherit";
     allProjects.style.color = "inherit";
     webProjects.style.backgroundColor = "inherit";
@@ -104,9 +162,10 @@ export default function PortfolioContainer(){
     pythonProjects.style.color = "inherit";
     bitProjects.style.backgroundColor = "gray";
     bitProjects.style.color = "black";
+    filterContent("bit");
   }
 
-  return(
+  return (
     <div className="main-container">
       <h3>
         My Projects
@@ -119,17 +178,7 @@ export default function PortfolioContainer(){
           <div id="bit" onClick={bit}>BIT Projects</div>
         </div>
         <div className="projects-container">
-          <div className="card" id="card1" onMouseEnter={(e)=>{
-            mouseEnter(e);
-          }}
-          onMouseLeave={(e)=>{
-            mouseLeave(e);
-          }}
-          >
-            <Image alt="Project Image"
-            src={birthCalc} width={500} height={500}/>
-            <div className="card-curtain"></div>
-          </div>
+          {cardCollection}
         </div>
       </div>
     </div>

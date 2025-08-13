@@ -2,6 +2,7 @@
 
 import PortfolioContainer from "./portfolioContainer";
 import Nav from "../nav";
+import Footer from "../footer";
 import "../global.css";
 
 export default function Portfolio(){
@@ -10,6 +11,7 @@ export default function Portfolio(){
       <Nav/>
       <PortfolioContainer/>
       <div id="curtain"></div>
+      <Footer/>
     </div>
   );
 }
