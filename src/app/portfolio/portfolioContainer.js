@@ -52,6 +52,16 @@ export default function PortfolioContainer(){
     setBitProjects(document.getElementById("bit"));
   }, []);
 
+  const mouseEnter = (e) =>{
+    const targetCurtain = e.currentTarget.querySelector(".card-curtain");
+    targetCurtain.style.display = "block";
+  }
+
+  const mouseLeave = (e) =>{
+    const targetCurtain = e.currentTarget.querySelector(".card-curtain");
+    targetCurtain.style.display = "none";
+  }
+
   const all = () =>{
     allProjects.style.backgroundColor = "gray";
     allProjects.style.color = "black";
@@ -61,8 +71,6 @@ export default function PortfolioContainer(){
     pythonProjects.style.color = "inherit";
     bitProjects.style.backgroundColor = "inherit";
     bitProjects.style.color = "inherit";
-
-    
   }
 
   const web = () =>{
@@ -111,9 +119,16 @@ export default function PortfolioContainer(){
           <div id="bit" onClick={bit}>BIT Projects</div>
         </div>
         <div className="projects-container">
-          <div className="card">
+          <div className="card" id="card1" onMouseEnter={(e)=>{
+            mouseEnter(e);
+          }}
+          onMouseLeave={(e)=>{
+            mouseLeave(e);
+          }}
+          >
             <Image alt="Project Image"
             src={birthCalc} width={500} height={500}/>
+            <div className="card-curtain"></div>
           </div>
         </div>
       </div>
