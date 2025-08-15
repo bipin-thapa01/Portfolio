@@ -106,3 +106,32 @@
   width: fit-content;
   height: fit-content;
 }
+
+@media (max-width: 860px){
+  .card{
+    width: 320px;
+    height: 180px;
+  }
+}
+
+@media (max-width: 780px){
+  .card{
+    width: 250px;
+    height: 150px;
+  }
+}
+
+@media (max-width: 705px){
+  .projects-categories{
+    overflow-x: scroll;
+    column-gap: 10px;
+  }
+
+  .projects-categories div{
+    font-size: 12px;
+  }
+
+  .projects-container{
+    column-gap: 10px;
+  }
+}
