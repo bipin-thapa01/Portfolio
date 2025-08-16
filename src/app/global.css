@@ -20,6 +20,20 @@ body{
   background-attachment: fixed;
 }
 
+.loading-bg{
+  position: fixed;
+  width: 100vw;
+  height: 100vh;
+  font-size: 20px;
+  top: 0px;
+  left: 0px;
+  background-color: #181818;
+  color: white;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
 #curtain{
   background-color: black;
   position: fixed;
@@ -50,7 +64,6 @@ body{
 }
 
 .nav-icon-container{
-  /* border: 2px solid white; */
   border-radius: 50%;
   width: 40px;
   height: 40px;
@@ -107,6 +120,26 @@ body{
 
 .pointer{
   cursor: pointer;
+}
+
+@media (min-width: 1150px){
+  .main-container{
+    width: 1350px;
+    margin-left: calc(50% - 675px);
+  }
+
+  .nav{
+    position: fixed;
+    z-index: 9999 !important;
+    top: 60px;
+    right: calc(50% - 665px);
+    width: 100px;
+  }
+
+  .footer{
+    width: 1350px;
+    margin-left: calc(50% - 675px);
+  }
 }
 
 @media (max-width: 730px){
