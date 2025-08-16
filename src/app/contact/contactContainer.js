@@ -1,50 +1,76 @@
 import { useState, useEffect } from "react";
+import { useRouter } from "next/navigation";
 import "../global.css";
 import "./contact.css";
 
 export default function ContacContainer() {
 
-  const [detailsHtml, setDetailsHtml] = useState(null);
+  let details;
+  const [contactInfo, setContactInfo] = useState(null);
+  const [conactForm, setContactForm] = useState(null);
+  const router = useRouter();
 
   useEffect(() => {
-    const updateDetails = async () => {
-      const det = await {
-        mail: "yukichin638@gmail.com",
-        facebook: "https://www.facebook.com/bipin.thapasingh/",
-        github: "https://github.com/bipin-thapa01",
-        linkedIn: "https://www.linkedin.com/in/bipin-thapa-990b5131b/",
-      };
+    details = {
+      mail: "yukichin638@gmail.com",
+      facebook: "https://www.facebook.com/bipin.thapasingh/",
+      github: "https://github.com/bipin-thapa01",
+      linkedIn: "https://www.linkedin.com/in/bipin-thapa-990b5131b/",
+    };
 
-      setDetailsHtml(
-        Object.entries(det).map((item, index) => {
-          <div className={`item`}>
-            <div className="mail">
-              Mail Me
-            </div>
-            <div>
-
-            </div>
+    setContactInfo(<>
+      <div className="info info1">
+        <div className="info-title">
+          Write Me
+        </div>
+        <div className="info-desc">
+          {details.mail}
+        </div>
+      </div>
+      <div className="info">
+        <div className="info-title">
+          Follow Me
+        </div>
+        <div className="info-desc">
+          <div className="link" onClick={() => { router.push(`${details.facebook}`) }}>
+            Facebook.
           </div>
-        })
-      );
-    }
+          <div className="link" onClick={() => { router.push(`${details.github}`) }}>
+            Github.
+          </div>
+          <div className="link" onClick={() => { router.push(`${details.linkedIn}`) }}>
+            LinkedIn.
+          </div>
+        </div>
+      </div>
+    </>);
 
-    updateDetails();
+    setContactForm(
+      <>
+        <div className="form-title">
+          Or fill this form
+        </div>
+        <input type="text" placeholder="Name" autoComplete="off" name="Name" className="input"/>
+        <input type="text" placeholder="Email" autoComplete="off" name="Email" className="input"/>
+        <input type="text" placeholder="Organization" autoComplete="off" name="Organization" className="input"/>
+        <textarea placeholder="Tell me something about you" autoComplete="off" name="description" className="desc"/>
+      </>
+    );
 
   }, []);
 
   return (
     <div className="main-container">
       <h3>
-        GEI IN TOUCH
+        GET IN TOUCH
       </h3>
       <div className="contact-container">
         <div className="contact-info">
-
+          {contactInfo}
         </div>
-        <div>
-
-        </div>
+        <form className="contact-form">
+          {conactForm}
+        </form>
       </div>
     </div>
   );

@@ -13,3 +13,43 @@
   left: 0;
   background: var(--gradient);
 }
+
+.contact-container{
+  margin-top: 60px;
+  display: flex;
+}
+
+.contact-info{
+  display: flex;
+  flex-direction: column;
+  row-gap: 100px;
+}
+
+.info{
+  display: flex;
+  flex-direction: column;
+  row-gap: 30px;
+}
+
+.info-title, .form-title{
+  color: gray;
+  font-size: 14px;
+}
+
+.info-desc{
+  font-size: 18px;
+  display: flex;
+  column-gap: 30px;
+  font-weight: 600;
+}
+
+.link{
+  cursor: pointer;
+}
+
+.input, .desc{
+  background-color: inherit;
+  color: white;
+  opacity: calc(1);
+  
+}
