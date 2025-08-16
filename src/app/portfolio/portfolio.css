@@ -54,6 +54,7 @@
   overflow: hidden;
   border-radius: 5px;
   position: relative;
+  cursor: pointer;
 }
 
 .card *{

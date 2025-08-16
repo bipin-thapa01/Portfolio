@@ -1,19 +1,20 @@
 "use client";
 
 import { useState, useEffect } from "react";
+import { useRouter } from "next/navigation";
 import Image from "next/image";
 import "../global.css";
 import "./portfolio.css";
 
 export default function PortfolioContainer() {
 
+  const router = useRouter();
+
   const [allProjects, setAllProjects] = useState(null);
   const [webProjects, setWebProjects] = useState(null);
   const [pythonProjects, setPythonProjects] = useState(null);
   const [bitProjects, setBitProjects] = useState(null);
   const [cardCollection, setCardCollection] = useState(null);
-
-  const birth = "/birthCalc.png";
 
   const projects = {
     hackfest: {
@@ -76,6 +77,9 @@ export default function PortfolioContainer() {
         }}
         onTouchEnd={(e)=>{
           mouseLeave(e);
+        }}
+        onClick={()=>{
+          router.push(item[1].url);
         }}
         >
           <Image alt="Project Image" className="card-image"

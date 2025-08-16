@@ -50,14 +50,39 @@ export default function ContacContainer() {
         <div className="form-title">
           Or fill this form
         </div>
-        <input type="text" placeholder="Name" autoComplete="off" name="Name" className="input"/>
-        <input type="text" placeholder="Email" autoComplete="off" name="Email" className="input"/>
-        <input type="text" placeholder="Organization" autoComplete="off" name="Organization" className="input"/>
-        <textarea placeholder="Tell me something about you" autoComplete="off" name="description" className="desc"/>
+        <input type="text" placeholder="Name" autoComplete="off" name="Name" className="input" id="name"/>
+        <input type="text" placeholder="Email" autoComplete="off" name="Email" className="input" id="email"/>
+        <input type="text" placeholder="Organization" autoComplete="off" name="Organization" className="input" id="org"/>
+        <textarea placeholder="Tell me something about you" autoComplete="off" name="description" className="desc" id="description"/>
+        <button type="submit" className="submit">Send</button>
       </>
     );
 
   }, []);
+
+  const handleSubmit = async (e) =>{
+    e.preventDefault();
+    const name = e.currentTarget.querySelector("#name").value;
+    const email = e.currentTarget.querySelector('#email').value;
+    const org = e.currentTarget.querySelector('#org').value;
+    const desc = e.currentTarget.querySelector('#description').value;
+
+    const sendObject = {
+      name: name,
+      email: email,
+      org: org,
+      desc: desc,
+    };
+
+    // const res = await fetch('',{
+    //   method: "POST",
+    //   headers: {
+    //     "Content-Type": "application/json",
+    //   },
+    //   body: JSON.stringify(sendObject)
+    // });
+    // const data = await res.json();
+  }
 
   return (
     <div className="main-container">
@@ -68,7 +93,7 @@ export default function ContacContainer() {
         <div className="contact-info">
           {contactInfo}
         </div>
-        <form className="contact-form">
+        <form className="contact-form" onSubmit={handleSubmit}>
           {conactForm}
         </form>
       </div>
