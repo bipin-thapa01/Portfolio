@@ -1,5 +1,6 @@
 import { useState, useEffect } from "react";
 import { useRouter } from "next/navigation";
+import { ImCross } from "react-icons/im";
 import "../global.css";
 import "./contact.css";
 
@@ -7,7 +8,7 @@ export default function ContacContainer() {
 
   let details;
   const [contactInfo, setContactInfo] = useState(null);
-  const [conactForm, setContactForm] = useState(null);
+  const [contactForm, setContactForm] = useState(null);
   const router = useRouter();
 
   useEffect(() => {
@@ -50,17 +51,17 @@ export default function ContacContainer() {
         <div className="form-title">
           Or fill this form
         </div>
-        <input type="text" placeholder="Name" autoComplete="off" name="Name" className="input" id="name"/>
-        <input type="text" placeholder="Email" autoComplete="off" name="Email" className="input" id="email"/>
-        <input type="text" placeholder="Organization" autoComplete="off" name="Organization" className="input" id="org"/>
-        <textarea placeholder="Tell me something about you" autoComplete="off" name="description" className="desc" id="description"/>
+        <input type="text" placeholder="Name" autoComplete="off" name="Name" className="input" id="name" />
+        <input type="text" placeholder="Email" autoComplete="off" name="Email" className="input" id="email" />
+        <input type="text" placeholder="Organization" autoComplete="off" name="Organization" className="input" id="org" />
+        <textarea placeholder="Tell me something about you" autoComplete="off" name="description" className="desc" id="description" />
         <button type="submit" className="submit">Send</button>
       </>
     );
 
   }, []);
 
-  const handleSubmit = async (e) =>{
+  const handleSubmit = async (e) => {
     e.preventDefault();
     const name = e.currentTarget.querySelector("#name").value;
     const email = e.currentTarget.querySelector('#email').value;
@@ -74,18 +75,30 @@ export default function ContacContainer() {
       desc: desc,
     };
 
-    // const res = await fetch('',{
-    //   method: "POST",
-    //   headers: {
-    //     "Content-Type": "application/json",
-    //   },
-    //   body: JSON.stringify(sendObject)
-    // });
-    // const data = await res.json();
+    const res = await fetch('https://portfolio-backend-mpyy.onrender.com/email', {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json",
+      },
+      body: JSON.stringify(sendObject)
+    });
+    const data = await res.json();
+    if (data.ok === 'ok') {
+      const message = document.getElementById('remove-message');
+      message.style.display = 'flex';
+    }
+  }
+
+  const removeMessage = () => {
+    const message = document.getElementById('remove-message');
+    message.style.display = 'none';
   }
 
   return (
     <div className="main-container">
+      <div className="response-status" id="remove-message">
+        <ImCross id="response-status-cross" onClick={removeMessage}/>
+        Message Sent Successfully!</div>
       <h3>
         GET IN TOUCH
       </h3>
@@ -94,7 +107,7 @@ export default function ContacContainer() {
           {contactInfo}
         </div>
         <form className="contact-form" onSubmit={handleSubmit}>
-          {conactForm}
+          {contactForm}
         </form>
       </div>
     </div>
