@@ -27,8 +27,6 @@ export default function DataCardContainer(props) {
 
   }, [cardKeys.length]);
 
-  console.log(cardKeys.length);
-
   return(
     <div className="data-card-container">
       <div className="main-title" ref={titleRef}>

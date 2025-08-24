@@ -17,6 +17,19 @@ export default function PortfolioContainer() {
   const [cardCollection, setCardCollection] = useState(null);
 
   const projects = {
+    subcryption:{
+      title: "Subcryption",
+      url: "https://subcryption.vercel.app",
+      type: "web",
+      imgUrl: "/subcryption.png",
+    },
+    subcryptionBackend:{
+      title: "Subcryption Backend",
+      url: "https://github.com/bipin-thapa01/Subcryption-Backend",
+      type: "web",
+      imgUrl: "/subcryptionBackend.png",
+    }
+    ,
     hackfest: {
       title: "HackFest",
       url: "https://kist-hackfest2025.vercel.app/",
@@ -59,11 +72,16 @@ export default function PortfolioContainer() {
       type: "python",
       imgUrl: "/textEditor.png",
     },
+    kistFair2025 :{
+      title: "Kist Fair 2025",
+      url: "https://github.com/bipin-thapa01/kist-fair-2025-",
+      type: "bit",
+      imgUrl: "/fair2025.png"
+    },
   };
 
   const filterContent = (category) => {
     const allowedCategory = (category === "all" ? ["web", "bit", "python"] : [category]);
-    console.log(allowedCategory)
     setCardCollection(
       Object.entries(projects).filter((item) => allowedCategory.includes(item[1].type)).map((item, index) => {
         return <div className="card" id={`card${index}`} key={index} onMouseEnter={(e) => {
