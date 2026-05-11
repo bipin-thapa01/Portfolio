@@ -4,10 +4,12 @@ import { FaReact } from "react-icons/fa";
 import { FaNodeJs } from "react-icons/fa6";
 import { FaJava } from "react-icons/fa";
 import { TbBrandCpp } from "react-icons/tb";
+import { FaFlutter } from "react-icons/fa6";
 import "./slider.css";
 
 const icons = [
   FaPython,
+  FaFlutter,
   IoLogoJavascript,
   FaReact,
   FaNodeJs,

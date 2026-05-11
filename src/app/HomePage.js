@@ -26,7 +26,7 @@ export default function HomePage() {
     };
     updateMyInfo(data);
 
-    const desc = "I’m really passionate about technology, especially in areas like AI, web development, and data science. I love creating websites and applications that are both useful and easy to use, while also diving into data to find meaningful insights. Exploring how artificial intelligence can solve real problems excites me the most. I’m always eager to learn new things and improve my skills so I can build smarter and better solutions every day.";
+    const desc = "I’m really passionate about technology, especially in areas like AI, app development, web development, and data science. I love creating websites and applications that are both useful and easy to use, while also diving into data to find meaningful insights. Exploring how artificial intelligence can solve real problems excites me the most. I’m always eager to learn new things and improve my skills so I can build smarter and better solutions every day.";
 
     updateDescription(desc);
 

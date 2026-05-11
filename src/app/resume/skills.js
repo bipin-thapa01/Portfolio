@@ -9,6 +9,10 @@ export default function Skills(){
           Language
         </div>
         <div className="lang">
+          <div className="js-p">50%</div>
+          <div className="js">Flutter</div>
+        </div>
+        <div className="lang">
           <div className="js-p">85%</div>
           <div className="js">JavaScript</div>
         </div>

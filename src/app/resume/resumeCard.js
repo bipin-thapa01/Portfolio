@@ -59,6 +59,12 @@ export default function ResumeCard() {
         description: "I started learning Python on 2023 but dropped it to learn web development. After having a but of experience on web devlopemnt now I am shifting my focus toward machine learning through Python.",
         margin: "440",
       },
+      card4: {
+        date: "2025 - Present",
+        title: "App Developemnt (Flutter)",
+        description: "Started learning flutter and dart in 2025 A.D and have been developing app and having fun since then",
+        margin: "440",
+      },
     }
   }
 
