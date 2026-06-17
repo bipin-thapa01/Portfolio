@@ -122,7 +122,7 @@ export default function PortfolioContainer() {
     setPythonProjects(document.getElementById("py"));
     setBitProjects(document.getElementById("bit"));
     filterContent("all");
-  }, []);
+  }, [filterContent]);
 
   const mouseEnter = (e) => {
     const targetCurtain = e.currentTarget.querySelector(".card-curtain");
