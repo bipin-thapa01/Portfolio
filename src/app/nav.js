@@ -1,6 +1,5 @@
 "use client";
-
-import { useRouter } from 'next/navigation';
+import { useRouter, usePathname } from 'next/navigation';
 import { useEffect } from 'react';
 import { RxHamburgerMenu } from "react-icons/rx";
 import { RxCross2 } from "react-icons/rx";
@@ -8,80 +7,66 @@ import "./homepage.css";
 import "./global.css";
 
 export default function Nav() {
+  const router = useRouter();
+  const pathname = usePathname();
 
+  // attach the open/close click handlers once
   useEffect(() => {
-    const defineIcon = async () => {
-      const burger = await document.getElementById('burger');
-      const cross = await document.getElementById('cross');
-      const options = await document.getElementById('noc');
-      const curtain = await document.getElementById('curtain')
+    const burger = document.getElementById('burger');
+    const cross = document.getElementById('cross');
+    const options = document.getElementById('noc');
+    const curtain = document.getElementById('curtain');
 
-      burger.addEventListener('click', () => {
-        burger.style.display = 'none';
-        cross.style.display = 'block';
-        options.style.display = 'flex';
-        curtain.style.display = 'block';
-      });
-      cross.addEventListener('click', () => {
-        burger.style.display = 'block';
-        cross.style.display = 'none';
-        options.style.display = 'none';
-        curtain.style.display = 'none';
-      });
-    }
+    const openMenu = () => {
+      burger.style.display = 'none';
+      cross.style.display = 'block';
+      options.style.display = 'flex';
+      curtain.style.display = 'block';
+    };
+    const closeMenu = () => {
+      burger.style.display = 'block';
+      cross.style.display = 'none';
+      options.style.display = 'none';
+      curtain.style.display = 'none';
+    };
 
-    const home = document.getElementById('home-option');
-    const resume = document.getElementById('resume-option');
-    const portfolio = document.getElementById('portfolio-option');
-    const contact = document.getElementById('contact-option');
+    burger.addEventListener('click', openMenu);
+    cross.addEventListener('click', closeMenu);
 
-    const pageLink = window.location.href;
-    const splitLink = pageLink.split('/');
-    if(splitLink[splitLink.length - 1] === ""){
-      home.style.textDecoration = 'line-through';
-      home.style.color = 'purple';
-      resume.style.textDecoration = 'none';
-      resume.style.color = 'white';
-      portfolio.style.textDecoration = 'none';
-      portfolio.style.color = 'white';
-      contact.style.textDecoration = 'none';
-      contact.style.color = 'white';
-    }
-    else if(splitLink[splitLink.length - 1] === "resume"){
-      home.style.textDecoration = 'none';
-      home.style.color = 'white';
-      resume.style.textDecoration = 'line-through';
-      resume.style.color = 'purple';
-      portfolio.style.textDecoration = 'none';
-      portfolio.style.color = 'white';
-      contact.style.textDecoration = 'none';
-      contact.style.color = 'white';
-    }
-    else if(splitLink[splitLink.length - 1] === "portfolio"){
-      home.style.textDecoration = 'none';
-      home.style.color = 'white';
-      resume.style.textDecoration = 'none';
-      resume.style.color = 'white';
-      portfolio.style.textDecoration = 'line-through';
-      portfolio.style.color = 'purple';
-      contact.style.textDecoration = 'none';
-      contact.style.color = 'white';
-    }
-    else if(splitLink[splitLink.length - 1] === "contact"){
-      home.style.textDecoration = 'none';
-      home.style.color = 'white';
-      resume.style.textDecoration = 'none';
-      resume.style.color = 'white';
-      portfolio.style.textDecoration = 'none';
-      portfolio.style.color = 'white';
-      contact.style.textDecoration = 'line-through';
-      contact.style.color = 'purple';
-    }
-
-    defineIcon();
+    return () => {
+      burger.removeEventListener('click', openMenu);
+      cross.removeEventListener('click', closeMenu);
+    };
   }, []);
 
-  const router = useRouter();
+  // reset menu + curtain, and update the active link, on every route change
+  useEffect(() => {
+    const burger = document.getElementById('burger');
+    const cross = document.getElementById('cross');
+    const options = document.getElementById('noc');
+    const curtain = document.getElementById('curtain');
+    if (burger) burger.style.display = 'block';
+    if (cross) cross.style.display = 'none';
+    if (options) options.style.display = 'none';
+    if (curtain) curtain.style.display = 'none';
+
+    const links = {
+      '/': document.getElementById('home-option'),
+      '/resume': document.getElementById('resume-option'),
+      '/portfolio': document.getElementById('portfolio-option'),
+      '/contact': document.getElementById('contact-option'),
+    };
+    Object.entries(links).forEach(([path, el]) => {
+      if (!el) return;
+      if (path === pathname) {
+        el.style.textDecoration = 'line-through';
+        el.style.color = 'purple';
+      } else {
+        el.style.textDecoration = 'none';
+        el.style.color = 'white';
+      }
+    });
+  }, [pathname]);
 
   return (
     <div className="nav">

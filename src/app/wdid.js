@@ -1,6 +1,6 @@
 import { FaComputer } from "react-icons/fa6";
 import { PiHeadCircuitLight } from "react-icons/pi";
-import { FaSearchengin } from "react-icons/fa";
+import { FaFlutter } from "react-icons/fa6";;
 import { FaShoppingCart } from "react-icons/fa";
 import { MdOutlineEventAvailable } from "react-icons/md";
 import { FaChalkboardTeacher } from "react-icons/fa";
@@ -23,8 +23,8 @@ export default function Wdid() {
             <span>Machine<br></br> Learning</span>
           </div>
           <div>
-            <FaSearchengin className="wdid-logo" />
-            <span>Research and<br></br> Project Development</span>
+            <FaFlutter className="wdid-logo" />
+            <span>App<br></br>Development</span>
           </div>
           <div>
             <FaShoppingCart className="wdid-logo" />
